@@ -1,0 +1,33 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>spaceButton</title>
+ 
+  </head>
+
+    <body>
+  
+        <h1>spacy</h1>
+        <script src="/socket.io/socket.io.js"></script>
+       
+        
+      
+        <script>
+            var socket = io();   //io() creates an instance of socket.io that can listen to the customEvents , made in webButton.js
+            //socket.connect('http://localhost:8080');  //no need to specifying any URL here since it defaults to trying to connect to the host that serves the page.
+
+            socket.on('spaceUp', function(){    //triggered everytime an event comes in
+                console.log('whats up in space ?');
+            })
+
+            socket.on('spaceDown', function(){    //triggered everytime an event comes in
+                console.log('space is down');
+            })
+        
+        </script>
+
+
+
+  </body>
+</html>
