@@ -1,0 +1,75 @@
+#led {
+	position: relative;
+	margin: 70px auto;
+	left: 70px;
+	
+
+}
+
+#halfCircle {
+	position: absolute;
+	top: 0;
+	height:50px;
+    width:100px;
+    border-radius: 100px 100px 0 0;
+	background: rgba(255,0,0,0.5);
+	
+
+}
+
+#rect {
+	position: absolute;
+	top: 50px;
+	width: 100px;
+	height: 100px;
+	background: rgba(255,0,0,0.5);
+}
+
+#bottom {
+	position: absolute;
+	top: 150px;
+	width: 110px;
+	height: 15px;
+	background: rgba(255,0,0,0.5);
+}
+
+/*#ring {
+	position: absolute;
+	top: 149px;
+	width: 100px;
+	height: 1px;
+	background: rgba(255,0,0,0.8);
+}*/
+
+#shine {
+	position: absolute;
+	left: 63px;
+	top: 15px;
+	width: 30px;
+	height: 15px;
+	border-radius: 100%;
+	background: rgba(255,255,255,0.5);
+	transform: rotate(45deg);
+}
+
+#foot1 {
+	position: absolute;
+	left: 25px;
+	top: 165px;
+	width: 5px;
+	height: 180px;
+	background: rgba(100,100,100,0.5);
+}
+
+#foot2 {
+	position: absolute;
+	left: 75px;
+	top: 165px;
+	width: 5px;
+	height: 230px;
+	background: rgba(100,100,100,0.5);
+}
+
+body {
+	font-family: sans-serif;
+}

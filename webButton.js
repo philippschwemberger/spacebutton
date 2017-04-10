@@ -18,6 +18,10 @@ app.get('/', function(req, res){    //GET request on homepage
   res.sendFile(__dirname + '/index.html');  //serves the index file to the browser
 });
 
+//serves public folder
+app.use(express.static(__dirname + '/public'));
+
+
 io.sockets.on('connection', function (socket) {
   console.log('ioConnected');
 });

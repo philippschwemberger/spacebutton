@@ -3,12 +3,23 @@
 <html>
   <head>
     <title>spaceButton</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
  
   </head>
 
     <body>
   
-        <h1>spacy</h1>
+        <div id="led">
+            <div id="halfCircle"></div>
+            <div id="rect"></div>
+            <div id="bottom"></div>
+            <!--<div id="ring"></div>-->
+
+            <div id="shine"></div>
+            <div id="foot1"></div>
+            <div id="foot2"></div>
+        </div>
+
         <script src="/socket.io/socket.io.js"></script>
        
         
@@ -19,10 +30,17 @@
 
             socket.on('spaceUp', function(){    //triggered everytime an event comes in
                 console.log('whats up in space ?');
+                document.getElementById("halfCircle").style.background = "red";
+                document.getElementById("rect").style.background = "red";
+                document.getElementById("bottom").style.background = "red";
             })
 
             socket.on('spaceDown', function(){    //triggered everytime an event comes in
                 console.log('space is down');
+                document.getElementById("halfCircle").style.background = "rgba(255,0,0,0.5)";
+                document.getElementById("rect").style.background = "rgba(255,0,0,0.5)";
+                document.getElementById("bottom").style.background = "rgba(255,0,0,0.5)";
+
             })
         
         </script>
