@@ -5,47 +5,51 @@
     <title>spaceButton</title>
     <link href="css/style.css" type="text/css" rel="stylesheet" />
  
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
   </head>
 
-    <body>
-  
-        <div id="led">
-            <div id="halfCircle"></div>
-            <div id="rect"></div>
-            <div id="bottom"></div>
-            <!--<div id="ring"></div>-->
+    <body>  
 
-            <div id="shine"></div>
-            <div id="foot1"></div>
-            <div id="foot2"></div>
+
+    <div id="app">
+
+        <div id="led">  <!--why do the inner divs not inherit from div "led" ?-->
+            <div id="halfCircle" :class="className"></div>
+            <div id="rect" :class="className"></div>
+            <div id="bottom" :class="className"></div>
+            <div id="shine" :class="className"></div>
+            <div id="foot1" :class="className"></div>
+            <div id="foot2" :class="className"></div>
         </div>
 
-        <script src="/socket.io/socket.io.js"></script>
+    </div>  
+        
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                className: 'lightRed',
+                message: 'vue.js'
+            }
+
+        });
+
+        var socket = io(); 
+
+        socket.on('spaceUp', function(){    
+            app.className = "red";
+            console.log('whats up in space ?');   
+        })
+
+        socket.on('spaceDown', function(){
+            app.className = "lightRed";    
+            console.log('space is down');
+        })
+
+
+    </script>
+
        
-        
-      
-        <script>
-            var socket = io();   //io() creates an instance of socket.io that can listen to the customEvents , made in webButton.js
-            //socket.connect('http://localhost:8080');  //no need to specifying any URL here since it defaults to trying to connect to the host that serves the page.
-
-            socket.on('spaceUp', function(){    //triggered everytime an event comes in
-                console.log('whats up in space ?');
-                document.getElementById("halfCircle").style.background = "red";
-                document.getElementById("rect").style.background = "red";
-                document.getElementById("bottom").style.background = "red";
-            })
-
-            socket.on('spaceDown', function(){    //triggered everytime an event comes in
-                console.log('space is down');
-                document.getElementById("halfCircle").style.background = "rgba(255,0,0,0.5)";
-                document.getElementById("rect").style.background = "rgba(255,0,0,0.5)";
-                document.getElementById("bottom").style.background = "rgba(255,0,0,0.5)";
-
-            })
-        
-        </script>
-
-
-
   </body>
 </html>
